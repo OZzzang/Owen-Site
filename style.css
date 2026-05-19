@@ -1,0 +1,26 @@
+/* Color Variables */
+:root {
+    --bg: #f6f4ef;
+    --ink: #181818;
+    --ink-2: #6a6a6a;
+    --accent: #2b5343;
+    --accent-light: #d6e8e1;
+    --card: #edeae3;
+}
+
+
+/* Reset default browser styles*/
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Styles for body and global elements */
+body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+}
