@@ -186,7 +186,7 @@ section {
 .contact-email {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     text-decoration: none;
     color: var(--ink);
     border-bottom: 1px solid currentColor;
