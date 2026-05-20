@@ -24,3 +24,198 @@ body {
     font-family: "Outfit", sans-serif;
     font-weight: 300;
 }
+
+/* Style the navigation page */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+}
+
+.nav-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+}
+
+/* Styling myself page */
+#hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 48px;
+}
+
+.hero-eyebrown {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+}
+
+.hero-name {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(4.5rem, 10vw, 6.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+}
+
+.hero-sub {
+    margin-top: 36px;
+    font-size: 1rem;
+    color: var(--ink2);
+}
+
+/* Styling about and projects section */
+section {
+    padding: 120px 48px;
+    border-top: 1px solid #e0ddd6;
+}
+
+.section-lable {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 56px;
+}
+
+.about-heading {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+}
+
+.about-body p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--ink-2);
+    margin-bottom: 20px;
+}
+
+.about-body strong {
+    color: var(--ink);
+    font-weight: 400;
+}
+
+
+/* Styling skills section */
+.skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 36px;
+}
+
+.skill-tag {
+    padding: 6px 14px;
+    border: 1px solid #d4d0c8;
+    border-radius: 99px;
+    font-size: 0.78rem;
+    color: var(--ink-2);
+}
+
+.card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 40px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-num {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 3rem;
+    color: #d4d0c8;
+    line-height: 1;
+    margin-bottom: 24px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.card-desc {
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    line-height: 1.6;
+}
+
+/* Styling contact and footer section */
+#contact {
+    text-align: center;
+}
+
+.contact-heading {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 40px;
+}
+
+.contact-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 4px;
+}
+
+.contact-links {
+    margin-top: 56px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.contact-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    text-decoration: none;
+}
+
+footer {
+    padding: 32px 48px;
+    border-top: 1px solid #e0ddd6;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer p {
+    font-size: 0.75rem;
+    color: var(--ink-2);
+}
