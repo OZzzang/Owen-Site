@@ -106,5 +106,26 @@
         <p> Owen Zeng - University of Waterloo</p>
         <p> Designed & Built by Me</p>
     </footer>
+
+    <script>
+        
+        // Scroll reveal animation using Intersection Observer API //
+        const revealEls = document.querySelectorAll(".reveal");
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealEls.forEach(function(el) {
+            observer.observe(el);
+        });
+
+
+    </script>
 </body>
 </html>
