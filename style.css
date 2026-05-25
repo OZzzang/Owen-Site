@@ -45,12 +45,16 @@ nav {
     font-size: 1.2rem;
     color: var(--ink);
     text-decoration: none;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.8s forwards;
 }
 
 .nav-links {
     display: flex;
     gap: 36px;
     list-style: none;
+    opacity: 0;
+    animation: fadeUp 0.6s 1s forwards;
 }
 
 .nav-links a {
@@ -59,7 +63,24 @@ nav {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--ink-2);
+    position: relative;
     transition: color 0.3s;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    bottom: -2px;
+    height: 1px;
+    background: var(--accent);
+    transition: left 0.3s, right 0.3s;
+}
+
+.nav-links a:hover::after {
+    left: 0;
+    right: 0;
 }
 
 /* Added hover effect to nav links */
@@ -77,12 +98,14 @@ nav {
     padding-top: 64px;
 }
 
-.hero-eyebrown {
+.hero-eyebrow {
     font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.5s 0.2s forwards;
 }
 
 .hero-name {
@@ -94,10 +117,32 @@ nav {
     letter-spacing: -0.02em;
 }
 
-.hero-sub {
+.hero-name .line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.15em;
+}
+
+.hero-name .line span {
+    display: block;
+    transform: translateY(110%);
+    animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-name .line:nth-child(1) span {
+    animation-delay: 0.3s;
+}
+
+.hero-name .line:nth-child(2) span {
+    animation-delay: 0.45s;
+}
+
+.hero-desc {
     margin-top: 36px;
     font-size: 1rem;
-    color: var(--ink2);
+    color: var(--ink-2);
+    opacity: 0;
+    animation: fadeUp 0.6s 0.9s forwards;
 }
 
 /* Styling about and projects section */
@@ -106,7 +151,7 @@ section {
     border-top: 1px solid #e0ddd6;
 }
 
-.section-lable {
+.section-label {
     font-size: 0.72rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -162,8 +207,21 @@ section {
 }
 
 /* Added hover effect to project cards */
+.card-arrow {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: var(--ink-2);
+    transform: rotate(-45deg);
+    transition: transform 0.3s, color 0.3s;
+}
+
 .card:hover {
     transform: translateY(-4px);
+}
+
+.card:hover .card-arrow {
+    transform: rotate(-45deg) translate(4px, -4px);
+    color: var(--accent);
 }
 
 .card-num {
@@ -267,4 +325,56 @@ footer p {
     .projects-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Adding animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(110%);
+    }
+    
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Adding smooth scrolling */
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+    transition-delay: 0.4s;
 }
