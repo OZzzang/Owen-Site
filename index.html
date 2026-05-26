@@ -11,8 +11,11 @@
 </head>
 <body>
 
+    <!-- Custom Cursor -->
+     <div id="cursor"></div>
+
     <!-- Navigation on page-->
-    <nav>
+    <nav id="nav">
         <a href="#" class="nav-logo"> Owen Zeng </a>
         <ul class="nav-links">
             <li> <a href="#about"> About </a> </li>
@@ -111,7 +114,8 @@
         
         // Scroll reveal animation using Intersection Observer API //
         const revealEls = document.querySelectorAll(".reveal");
-        
+
+        // Function to observe //
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
@@ -120,11 +124,76 @@
                 }
             });
         }, { threshold: 0.12 });
-
+        
+        // Calling the observer function onto the reveal class //
         revealEls.forEach(function(el) {
             observer.observe(el);
         });
+        
+        // Making nav scrolling non-transparent //
+        const nav = document.getElementById("nav");
+        
+        /* Function calling .addEventListener API to
+        add and removed "scrolled" to elements with ID "nav" */
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 40) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+        });
+        
+        // Custom Cursor //
+        const cursor = document.getElementById("cursor");
 
+        // Mouse is main cursor cursor is trailing behind //
+        let mouseX = -100, mouseY = -100;
+        let cursorX = -100, cursorY = -100;
+        
+        // Updates main Mouse's information in real time //
+        document.addEventListener("mousemove", function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Function to add or remove "hovered" effect to Cursor //
+        document.querySelectorAll("a, button, .card").forEach(function(el) {
+            el.addEventListener("mouseenter", function() {
+                cursor.classList.add("hovered");
+            });
+
+            el.addEventListener("mouseleave", function() {
+                cursor.classList.remove("hovered");
+            });
+        });
+
+        // Function to animate(move the Cursor) and create trailing effect //
+        // Also uses requestAnimationFrame API to keep up with monitor refresh rate //
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.18;
+            cursorY += (mouseY - cursorY) * 0.18;
+            cursor.style.left = cursorX + "px";
+            cursor.style.top = cursorY + "px";
+            requestAnimationFrame(animateCursor);
+        }
+
+        // Calling the function //
+        animateCursor();
+
+        // 3D Card Tilt Animation //
+        document.querySelectorAll(".card").forEach(function(card) {
+            card.addEventListener("mousemove", function(e) {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / (rect.width) - 0.5;
+                const y = (e.clientY - rect.top) / (rect.height) - 0.5;
+                card.style.transform = 
+                    "perspective(310px) rotateY(" + (x * 8) + "deg) rotateX(" + (-y * 6) + "deg) translateZ(4px)";  
+            });
+            
+            card.addEventListener("mouseleave", function() {
+                card.style.transform = "";
+            });
+        });
 
     </script>
 </body>

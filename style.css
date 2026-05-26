@@ -23,6 +23,9 @@ body {
     color: var(--ink);
     font-family: "Outfit", sans-serif;
     font-weight: 300;
+    *, a, button {
+        cursor: none;
+    }
 }
 
 /* Style the navigation page */
@@ -37,6 +40,7 @@ nav {
     justify-content: space-between;
     padding: 0 48px;
     z-index: 100;
+    transition: background 0.4s;
 }
 
 .nav-logo {
@@ -86,6 +90,12 @@ nav {
 /* Added hover effect to nav links */
 .nav-links a:hover {
     color: var(--ink);
+}
+
+/* Making nav non-transparent while scrolling */
+nav.scrolled {
+    background: rgba(246, 244, 239, 0.88);
+    backdrop-filter: blur(12px);
 }
 
 /* Styling myself page */
@@ -377,4 +387,23 @@ footer p {
 
 .reveal-delay-4 {
     transition-delay: 0.4s;
+}
+
+/* Custom Cursor */
+#cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background 0.2s;
+}
+
+#cursor.hovered {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-light);
 }
