@@ -23,6 +23,8 @@ body {
     color: var(--ink);
     font-family: "Outfit", sans-serif;
     font-weight: 300;
+
+    /* Hide default cursor */
     *, a, button {
         cursor: none;
     }
